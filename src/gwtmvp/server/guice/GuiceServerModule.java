@@ -1,15 +1,14 @@
 package gwtmvp.server.guice;
 
+import gwtmvp.server.handler.SendGreetingHandler;
+import gwtmvp.shared.rpc.SendGreeting;
 import net.customware.gwt.dispatch.server.guice.ActionHandlerModule;
 
 public class GuiceServerModule extends ActionHandlerModule {
 
-	public GuiceServerModule() {
-	}
-
 	@Override
 	protected void configureHandlers() {
-		// TODO Auto-generated method stub
+		bindHandler(SendGreeting.class, SendGreetingHandler.class);
 	}
 
 }

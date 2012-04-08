@@ -9,7 +9,7 @@ public class DispatchServletModule extends ServletModule {
 	@Override
 	protected void configureServlets() {
 		super.configureServlets();
-		serve("/newklik/dispatch").with(DispatchServlet.class);
+		serve("/gwtmvp/dispatch").with(DispatchServlet.class);
 	}
 
 }
