@@ -1,7 +1,5 @@
 package gwtmvp.client.mvp;
 
-import net.customware.gwt.dispatch.client.DispatchAsync;
-
 import com.google.gwt.user.client.ui.HasWidgets;
 import com.google.inject.Inject;
 
@@ -10,8 +8,7 @@ public class AppPresenter {
 	private GreetingPresenter greetingPresenter;
 
 	@Inject
-	public AppPresenter(final DispatchAsync dispatcher,
-			final GreetingPresenter greetingPresenter) {
+	public AppPresenter(final GreetingPresenter greetingPresenter) {
 		this.greetingPresenter = greetingPresenter;
 	}
 

@@ -1,5 +1,6 @@
 package gwtmvp.client.mvp;
 
+import gwtmvp.client.dispatch.CachingDispatchAsync;
 import gwtmvp.shared.event.GreetingSentEvent;
 import gwtmvp.shared.rpc.SendGreeting;
 import gwtmvp.shared.rpc.SendGreetingResult;
@@ -47,7 +48,7 @@ public class GreetingPresenter extends WidgetPresenter<GreetingPresenter.Display
 	@Inject
 	public GreetingPresenter(final Display display,
 			final EventBus eventBus,
-			final DispatchAsync dispatcher,
+			final CachingDispatchAsync dispatcher,
 			final GreetingResponsePresenter greetingResponsePresenter) {
 		super(display, eventBus);
 
