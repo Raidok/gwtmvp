@@ -10,8 +10,9 @@ import net.customware.gwt.dispatch.shared.Result;
 import org.mortbay.log.Log;
 
 import com.google.inject.Inject;
+import com.google.inject.Singleton;
 
-
+@Singleton
 public class DispatchServlet extends GuiceStandardDispatchServlet {
 
 	private static final long serialVersionUID = 4767502888712998380L;
