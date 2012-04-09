@@ -38,6 +38,7 @@ public class GreetingResponsePresenter extends WidgetPresenter<GreetingResponseP
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	protected void onBind() {
 		// Add a handler to close the DialogBox
 		display.getClose().addClickHandler(new ClickHandler() {
@@ -60,6 +61,7 @@ public class GreetingResponsePresenter extends WidgetPresenter<GreetingResponseP
 				display.getTextToServer().setText(event.getName());
 				display.getServerResponse().setHTML(event.getMessage());
 				display.getDialogBox().show();
+				display.getDialogBox().center();
 			}
 		});
 	}
