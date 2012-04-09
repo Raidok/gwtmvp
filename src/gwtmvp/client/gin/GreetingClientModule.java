@@ -12,7 +12,7 @@ import net.customware.gwt.presenter.client.gin.AbstractPresenterModule;
 
 import com.google.inject.Singleton;
 
-public class GreetingClientGin extends AbstractPresenterModule {
+public class GreetingClientModule extends AbstractPresenterModule {
 
 	@Override
 	protected void configure() {
