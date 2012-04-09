@@ -1,7 +1,5 @@
 package gwtmvp.client.mvp;
 
-import net.customware.gwt.presenter.client.widget.WidgetDisplay;
-
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.user.client.ui.Button;
 import com.google.gwt.user.client.ui.DialogBox;
@@ -11,15 +9,18 @@ import com.google.gwt.user.client.ui.HasText;
 import com.google.gwt.user.client.ui.Label;
 import com.google.gwt.user.client.ui.VerticalPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.gwtplatform.mvp.client.ViewImpl;
 
-public class GreetingResponseView extends DialogBox implements GreetingResponsePresenter.Display {
+public class GreetingResponseView extends ViewImpl implements GreetingResponsePresenter.MyView {
 	private final Label textToServerLabel;
 	private final HTML serverResponseLabel;
 	private final Button closeButton;
+	private final DialogBox dialog;
 
 	public GreetingResponseView() {
-		setText("Remote Procedure Call");
-		setAnimationEnabled(true);
+		dialog = new DialogBox();
+		dialog.setText("Remote Procedure Call");
+		dialog.setAnimationEnabled(true);
 
 		closeButton = new Button("Close");
 
@@ -39,7 +40,7 @@ public class GreetingResponseView extends DialogBox implements GreetingResponseP
 		dialogVPanel.setHorizontalAlignment(VerticalPanel.ALIGN_RIGHT);
 		dialogVPanel.add(closeButton);
 
-		setWidget(dialogVPanel);
+		dialog.setWidget(dialogVPanel);
 	}
 
 	@Override
@@ -59,7 +60,7 @@ public class GreetingResponseView extends DialogBox implements GreetingResponseP
 
 	@Override
 	public DialogBox getDialogBox() {
-		return this;
+		return dialog;
 	}
 
 	/**
@@ -67,18 +68,6 @@ public class GreetingResponseView extends DialogBox implements GreetingResponseP
 	 */
 	@Override
 	public Widget asWidget() {
-		return this;
-	}
-
-	@Override
-	public void startProcessing() {
-		// TODO Auto-generated method stub
-
-	}
-
-	@Override
-	public void stopProcessing() {
-		// TODO Auto-generated method stub
-
+		return dialog;
 	}
 }

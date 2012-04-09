@@ -2,13 +2,13 @@ package gwtmvp.server.guice;
 
 import gwtmvp.server.handler.SendGreetingHandler;
 import gwtmvp.shared.rpc.SendGreeting;
-import net.customware.gwt.dispatch.server.guice.ActionHandlerModule;
 
 import org.apache.commons.logging.Log;
 
 import com.google.inject.Singleton;
+import com.gwtplatform.dispatch.server.guice.HandlerModule;
 
-public class GuiceServerModule extends ActionHandlerModule {
+public class GuiceServerModule extends HandlerModule {
 
 	@Override
 	protected void configureHandlers() {

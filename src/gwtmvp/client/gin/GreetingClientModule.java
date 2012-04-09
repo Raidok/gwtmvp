@@ -6,20 +6,20 @@ import gwtmvp.client.mvp.GreetingPresenter;
 import gwtmvp.client.mvp.GreetingResponsePresenter;
 import gwtmvp.client.mvp.GreetingResponseView;
 import gwtmvp.client.mvp.GreetingView;
-import net.customware.gwt.presenter.client.DefaultEventBus;
-import net.customware.gwt.presenter.client.EventBus;
-import net.customware.gwt.presenter.client.gin.AbstractPresenterModule;
+import gwtmvp.client.mvp.MyPlaceManager;
 
 import com.google.inject.Singleton;
+import com.gwtplatform.dispatch.server.spring.configuration.DefaultModule;
+import com.gwtplatform.mvp.client.gin.AbstractPresenterModule;
 
 public class GreetingClientModule extends AbstractPresenterModule {
 
 	@Override
 	protected void configure() {
-		bind(EventBus.class).to(DefaultEventBus.class).in(Singleton.class);
+		install(new DefaultModule(MyPlaceManager.class));
 
-		bindPresenter(GreetingPresenter.class, GreetingPresenter.Display.class, GreetingView.class);
-		bindPresenter(GreetingResponsePresenter.class, GreetingResponsePresenter.Display.class, GreetingResponseView.class);
+		bindPresenter(GreetingPresenter.class, GreetingPresenter.MyView.class, GreetingView.class, GreetingPresenter.MyProxy.class);
+		bindPresenter(GreetingResponsePresenter.class, GreetingResponsePresenter.MyView.class, GreetingResponseView.class, GreetingResponsePresenter.MyProxy.class);
 
 		bind(AppPresenter.class).in(Singleton.class);
 		bind(CachingDispatchAsync.class).in(Singleton.class);

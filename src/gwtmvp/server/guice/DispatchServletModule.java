@@ -1,15 +1,14 @@
 package gwtmvp.server.guice;
 
-import gwtmvp.server.DispatchServlet;
-
 import com.google.inject.servlet.ServletModule;
+import com.gwtplatform.dispatch.server.guice.DispatchServiceImpl;
 
 public class DispatchServletModule extends ServletModule {
 
 	@Override
 	protected void configureServlets() {
 		super.configureServlets();
-		serve("/gwtmvp/dispatch").with(DispatchServlet.class);
+		serve("/gwtmvp/dispatch").with(DispatchServiceImpl.class);
 	}
 
 }

@@ -1,8 +1,8 @@
 package gwtmvp.shared.rpc;
 
-import net.customware.gwt.dispatch.shared.Action;
+import com.gwtplatform.dispatch.shared.UnsecuredActionImpl;
 
-public class SendGreeting implements Action<SendGreetingResult> {
+public class SendGreeting extends UnsecuredActionImpl<SendGreetingResult> {
 
 	private String name;
 

@@ -6,14 +6,13 @@ import gwtmvp.shared.rpc.SendGreetingResult;
 import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 
-import net.customware.gwt.dispatch.server.ActionHandler;
-import net.customware.gwt.dispatch.server.ExecutionContext;
-import net.customware.gwt.dispatch.shared.ActionException;
-
 import org.apache.commons.logging.Log;
 
 import com.google.inject.Inject;
 import com.google.inject.Provider;
+import com.gwtplatform.dispatch.server.ExecutionContext;
+import com.gwtplatform.dispatch.server.actionhandler.ActionHandler;
+import com.gwtplatform.dispatch.shared.ActionException;
 
 public class SendGreetingHandler implements ActionHandler<SendGreeting, SendGreetingResult> {
 	private final Log logger;
@@ -55,10 +54,10 @@ public class SendGreetingHandler implements ActionHandler<SendGreeting, SendGree
 	}
 
 	@Override
-	public void rollback(final SendGreeting action,
-			final SendGreetingResult result,
-			final ExecutionContext context) throws ActionException {
+	public void undo(SendGreeting action, SendGreetingResult result,
+			ExecutionContext context) throws ActionException {
 		// Nothing to do here
+
 	}
 
 	@Override

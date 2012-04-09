@@ -1,24 +1,20 @@
 package gwtmvp.client.mvp;
 
-import net.customware.gwt.presenter.client.widget.WidgetDisplay;
-
 import com.google.gwt.event.dom.client.HasClickHandlers;
 import com.google.gwt.user.client.ui.Button;
-import com.google.gwt.user.client.ui.Composite;
 import com.google.gwt.user.client.ui.FlowPanel;
 import com.google.gwt.user.client.ui.HasValue;
 import com.google.gwt.user.client.ui.RootPanel;
 import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
+import com.gwtplatform.mvp.client.ViewImpl;
 
-public class GreetingView extends Composite implements GreetingPresenter.Display {
+public class GreetingView extends ViewImpl implements GreetingPresenter.MyView {
 	private final TextBox name;
 	private final Button sendButton;
+	private final FlowPanel panel = new FlowPanel();
 
 	public GreetingView() {
-		final FlowPanel panel = new FlowPanel();
-
-		initWidget(panel);
 
 		name = new TextBox();
 		panel.add(name);
@@ -50,21 +46,8 @@ public class GreetingView extends Composite implements GreetingPresenter.Display
 		name.selectAll();
 	}
 
-	/**
-	 * Returns this widget as the {@link WidgetDisplay#asWidget()} value.
-	 */
 	@Override
 	public Widget asWidget() {
-		return this;
-	}
-
-	@Override
-	public void startProcessing() {
-		// TODO Auto-generated method stub
-	}
-
-	@Override
-	public void stopProcessing() {
-		// TODO Auto-generated method stub
+		return panel;
 	}
 }
