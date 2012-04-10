@@ -18,6 +18,7 @@ import com.gwtplatform.mvp.client.Presenter;
 import com.gwtplatform.mvp.client.View;
 import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.annotations.ProxyStandard;
+import com.gwtplatform.mvp.client.proxy.PlaceManager;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 import com.gwtplatform.mvp.client.proxy.RevealRootContentEvent;
 
@@ -45,21 +46,17 @@ GreetingPresenter.MyProxy> {
 
 	private final DispatchAsync dispatcher;
 
-	// FUDGE FACTOR! Although this is not used, having Gin pass the object
-	// to this class will force its instantiation and therefore will make the
-	// response presenter listen for events (via bind()). This is not a very good way to
-	// achieve this, but I wanted to put something together quickly - sorry!
-	private final GreetingResponsePresenter greetingResponsePresenter;
+	private final PlaceManager placeManager;
 
 	@Inject
 	public GreetingPresenter(final EventBus eventBus,
 			final MyView view,
 			final MyProxy proxy,
 			final DispatchAsync dispatcher,
-			final GreetingResponsePresenter greetingResponsePresenter) {
+			final PlaceManager placeManager) {
 		super(eventBus, view, proxy);
 		this.dispatcher = dispatcher;
-		this.greetingResponsePresenter = greetingResponsePresenter;
+		this.placeManager = placeManager;
 	}
 
 	/**

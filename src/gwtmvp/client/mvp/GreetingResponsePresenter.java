@@ -17,7 +17,8 @@ import com.gwtplatform.mvp.client.View;
 import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.annotations.ProxyStandard;
 import com.gwtplatform.mvp.client.proxy.PlaceManager;
-import com.gwtplatform.mvp.client.proxy.Proxy;
+import com.gwtplatform.mvp.client.proxy.ProxyPlace;
+import com.gwtplatform.mvp.client.proxy.RevealRootContentEvent;
 
 public class GreetingResponsePresenter extends
 Presenter<GreetingResponsePresenter.MyView, GreetingResponsePresenter.MyProxy> {
@@ -34,7 +35,7 @@ Presenter<GreetingResponsePresenter.MyView, GreetingResponsePresenter.MyProxy> {
 
 	@ProxyStandard
 	@NameToken(nameToken)
-	public interface MyProxy extends Proxy<GreetingPresenter> {
+	public interface MyProxy extends ProxyPlace<GreetingResponsePresenter> {
 	}
 
 	public static final String nameToken = "GreetingResponse";
@@ -83,7 +84,6 @@ Presenter<GreetingResponsePresenter.MyView, GreetingResponsePresenter.MyProxy> {
 
 	@Override
 	protected void revealInParent() {
-		// TODO Auto-generated method stub
-
+		RevealRootContentEvent.fire(this, this);
 	}
 }

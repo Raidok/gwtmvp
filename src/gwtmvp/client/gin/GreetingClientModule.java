@@ -18,8 +18,14 @@ public class GreetingClientModule extends AbstractPresenterModule {
 	protected void configure() {
 		install(new DefaultModule(MyPlaceManager.class));
 
-		bindPresenter(GreetingPresenter.class, GreetingPresenter.MyView.class, GreetingView.class, GreetingPresenter.MyProxy.class);
-		bindPresenter(GreetingResponsePresenter.class, GreetingResponsePresenter.MyView.class, GreetingResponseView.class, GreetingResponsePresenter.MyProxy.class);
+		bindPresenter(GreetingPresenter.class,
+				GreetingPresenter.MyView.class,
+				GreetingView.class,
+				GreetingPresenter.MyProxy.class);
+		bindPresenter(GreetingResponsePresenter.class,
+				GreetingResponsePresenter.MyView.class,
+				GreetingResponseView.class,
+				GreetingResponsePresenter.MyProxy.class);
 
 		bind(AppPresenter.class).in(Singleton.class);
 		bind(CachingDispatchAsync.class).in(Singleton.class);
