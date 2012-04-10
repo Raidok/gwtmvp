@@ -9,8 +9,8 @@ import gwtmvp.client.mvp.GreetingView;
 import gwtmvp.client.mvp.MyPlaceManager;
 
 import com.google.inject.Singleton;
-import com.gwtplatform.dispatch.server.spring.configuration.DefaultModule;
 import com.gwtplatform.mvp.client.gin.AbstractPresenterModule;
+import com.gwtplatform.mvp.client.gin.DefaultModule;
 
 public class GreetingClientModule extends AbstractPresenterModule {
 
