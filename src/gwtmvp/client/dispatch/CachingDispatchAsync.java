@@ -5,12 +5,12 @@ import java.util.HashMap;
 
 import com.allen_sauer.gwt.log.client.Log;
 import com.google.gwt.user.client.rpc.AsyncCallback;
+import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import com.gwtplatform.dispatch.client.DefaultDispatchAsync;
 import com.gwtplatform.dispatch.client.ExceptionHandler;
 import com.gwtplatform.dispatch.client.actionhandler.ClientActionHandlerRegistry;
 import com.gwtplatform.dispatch.shared.Action;
-import com.gwtplatform.dispatch.shared.DispatchAsync;
 import com.gwtplatform.dispatch.shared.DispatchRequest;
 import com.gwtplatform.dispatch.shared.Result;
 import com.gwtplatform.dispatch.shared.SecurityCookieAccessor;
@@ -21,11 +21,11 @@ import com.gwtplatform.dispatch.shared.SecurityCookieAccessor;
 @Singleton
 public class CachingDispatchAsync extends DefaultDispatchAsync {
 
-	private DispatchAsync dispatcher;
 	private static HashMap<Action<Result>, Result> cache = new HashMap<Action<Result>, Result>();
 	private static HashMap<Action<Result>, ArrayList<AsyncCallback<Result>>> pendingCallbacks =
 			new HashMap<Action<Result>, ArrayList<AsyncCallback<Result>>>();
 
+	@Inject
 	public CachingDispatchAsync(ExceptionHandler exceptionHandler,
 			SecurityCookieAccessor securityCookieAccessor,
 			ClientActionHandlerRegistry registry) {
@@ -40,7 +40,7 @@ public class CachingDispatchAsync extends DefaultDispatchAsync {
 	@Override
 	public <A extends Action<R>, R extends Result> DispatchRequest execute(final A action, AsyncCallback<R> callback) {
 		Log.debug("Calling service for " +action);
-		return dispatcher.execute(action, callback);
+		return super.execute(action, callback);
 	}
 
 
@@ -73,7 +73,7 @@ public class CachingDispatchAsync extends DefaultDispatchAsync {
 		} else {
 			Log.debug("Calling real sevice for " + action);
 			pendingCallbacks.put((Action<Result>) action, new ArrayList<AsyncCallback<Result>>());
-			dispatcher.execute(action, new AsyncCallback<R>() {
+			super.execute(action, new AsyncCallback<R>() {
 
 				@Override
 				public void onFailure(Throwable caught) {
