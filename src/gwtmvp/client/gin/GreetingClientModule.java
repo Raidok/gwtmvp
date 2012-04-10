@@ -1,7 +1,6 @@
 package gwtmvp.client.gin;
 
 import gwtmvp.client.dispatch.CachingDispatchAsync;
-import gwtmvp.client.mvp.AppPresenter;
 import gwtmvp.client.mvp.GreetingPresenter;
 import gwtmvp.client.mvp.GreetingResponsePresenter;
 import gwtmvp.client.mvp.GreetingResponseView;
@@ -27,7 +26,6 @@ public class GreetingClientModule extends AbstractPresenterModule {
 				GreetingResponseView.class,
 				GreetingResponsePresenter.MyProxy.class);
 
-		bind(AppPresenter.class).in(Singleton.class);
 		bind(CachingDispatchAsync.class).in(Singleton.class);
 	}
 
