@@ -8,14 +8,16 @@ import com.gwtplatform.mvp.client.proxy.TokenFormatter;
 
 public class MyPlaceManager extends PlaceManagerImpl {
 
+	private final PlaceRequest defaultPlaceRequest;
 	@Inject
 	public MyPlaceManager(EventBus eventBus, TokenFormatter tokenFormatter) {
 		super(eventBus, tokenFormatter);
+		defaultPlaceRequest = new PlaceRequest(LayoutPresenter.nameToken);
 	}
 
 	@Override
 	public void revealDefaultPlace() {
-		revealPlace(new PlaceRequest(MainPresenter.nameToken));
+		revealPlace(defaultPlaceRequest, false);
 	}
 
 }
