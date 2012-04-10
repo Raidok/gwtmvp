@@ -3,38 +3,44 @@ package gwtmvp.client.dispatch;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-import net.customware.gwt.dispatch.client.DispatchAsync;
-import net.customware.gwt.dispatch.shared.Action;
-import net.customware.gwt.dispatch.shared.Result;
-
 import com.allen_sauer.gwt.log.client.Log;
 import com.google.gwt.user.client.rpc.AsyncCallback;
-import com.google.inject.Inject;
 import com.google.inject.Singleton;
+import com.gwtplatform.dispatch.client.DefaultDispatchAsync;
+import com.gwtplatform.dispatch.client.ExceptionHandler;
+import com.gwtplatform.dispatch.client.actionhandler.ClientActionHandlerRegistry;
+import com.gwtplatform.dispatch.shared.Action;
+import com.gwtplatform.dispatch.shared.DispatchAsync;
+import com.gwtplatform.dispatch.shared.DispatchRequest;
+import com.gwtplatform.dispatch.shared.Result;
+import com.gwtplatform.dispatch.shared.SecurityCookieAccessor;
 
 /**
  * Dispatcher which supports in memory data caching
  */
 @Singleton
-public class CachingDispatchAsync implements DispatchAsync {
+public class CachingDispatchAsync extends DefaultDispatchAsync {
+
 	private DispatchAsync dispatcher;
 	private static HashMap<Action<Result>, Result> cache = new HashMap<Action<Result>, Result>();
 	private static HashMap<Action<Result>, ArrayList<AsyncCallback<Result>>> pendingCallbacks =
 			new HashMap<Action<Result>, ArrayList<AsyncCallback<Result>>>();
 
-	@Inject
-	public CachingDispatchAsync(final DispatchAsync dispatcher) {
-		this.dispatcher = dispatcher;
+	public CachingDispatchAsync(ExceptionHandler exceptionHandler,
+			SecurityCookieAccessor securityCookieAccessor,
+			ClientActionHandlerRegistry registry) {
+		super(exceptionHandler, securityCookieAccessor, registry);
+		// TODO Auto-generated constructor stub
 	}
-
 
 	/**
 	 * Executes the given action and with cache when action is cacheable.
+	 * @return
 	 */
 	@Override
-	public <A extends Action<R>, R extends Result> void execute(final A action, AsyncCallback<R> callback) {
+	public <A extends Action<R>, R extends Result> DispatchRequest execute(final A action, AsyncCallback<R> callback) {
 		Log.debug("Calling service for " +action);
-		dispatcher.execute(action, callback);
+		return dispatcher.execute(action, callback);
 	}
 
 
