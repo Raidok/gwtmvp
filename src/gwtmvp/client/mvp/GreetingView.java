@@ -9,7 +9,7 @@ import com.google.gwt.user.client.ui.TextBox;
 import com.google.gwt.user.client.ui.Widget;
 import com.gwtplatform.mvp.client.ViewImpl;
 
-public class GreetingView extends ViewImpl implements GreetingPresenter.MyView {
+public class GreetingView extends ViewImpl implements MainPresenter.MyView {
 
 	private final TextBox name;
 	private final Button sendButton;

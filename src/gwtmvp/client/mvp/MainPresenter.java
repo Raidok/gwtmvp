@@ -24,8 +24,8 @@ import com.gwtplatform.mvp.client.proxy.PlaceRequest;
 import com.gwtplatform.mvp.client.proxy.Proxy;
 import com.gwtplatform.mvp.client.proxy.RevealRootContentEvent;
 
-public class GreetingPresenter extends Presenter<GreetingPresenter.MyView,
-GreetingPresenter.MyProxy> {
+public class MainPresenter extends Presenter<MainPresenter.MyView,
+MainPresenter.MyProxy> {
 	/**
 	 * The message displayed to the user when the server cannot be reached or
 	 * returns an error.
@@ -42,7 +42,7 @@ GreetingPresenter.MyProxy> {
 
 	@ProxyStandard
 	@NameToken(nameToken)
-	public interface MyProxy extends Proxy<GreetingPresenter>, Place {
+	public interface MyProxy extends Proxy<MainPresenter>, Place {
 	}
 
 	public static final String nameToken = "Greeting";
@@ -52,7 +52,7 @@ GreetingPresenter.MyProxy> {
 	private final PlaceManager placeManager;
 
 	@Inject
-	public GreetingPresenter(final EventBus eventBus,
+	public MainPresenter(final EventBus eventBus,
 			final MyView view,
 			final MyProxy proxy,
 			final DispatchAsync dispatcher,

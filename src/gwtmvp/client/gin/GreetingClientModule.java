@@ -1,7 +1,7 @@
 package gwtmvp.client.gin;
 
 import gwtmvp.client.dispatch.CachingDispatchAsync;
-import gwtmvp.client.mvp.GreetingPresenter;
+import gwtmvp.client.mvp.MainPresenter;
 import gwtmvp.client.mvp.GreetingResponsePresenter;
 import gwtmvp.client.mvp.GreetingResponseView;
 import gwtmvp.client.mvp.GreetingView;
@@ -17,10 +17,10 @@ public class GreetingClientModule extends AbstractPresenterModule {
 	protected void configure() {
 		install(new DefaultModule(MyPlaceManager.class));
 
-		bindPresenter(GreetingPresenter.class,
-				GreetingPresenter.MyView.class,
+		bindPresenter(MainPresenter.class,
+				MainPresenter.MyView.class,
 				GreetingView.class,
-				GreetingPresenter.MyProxy.class);
+				MainPresenter.MyProxy.class);
 		bindPresenter(GreetingResponsePresenter.class,
 				GreetingResponsePresenter.MyView.class,
 				GreetingResponseView.class,

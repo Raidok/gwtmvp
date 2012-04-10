@@ -15,7 +15,7 @@ public class MyPlaceManager extends PlaceManagerImpl {
 
 	@Override
 	public void revealDefaultPlace() {
-		revealPlace(new PlaceRequest(GreetingPresenter.nameToken));
+		revealPlace(new PlaceRequest(MainPresenter.nameToken));
 	}
 
 }

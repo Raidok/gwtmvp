@@ -1,6 +1,6 @@
 package gwtmvp.client.gin;
 
-import gwtmvp.client.mvp.GreetingPresenter;
+import gwtmvp.client.mvp.MainPresenter;
 import gwtmvp.client.mvp.GreetingResponsePresenter;
 
 import com.google.gwt.inject.client.AsyncProvider;
@@ -15,6 +15,6 @@ import com.gwtplatform.mvp.client.proxy.PlaceManager;
 public interface GreetingGinjector extends Ginjector {
 	EventBus getEventBus();
 	PlaceManager getPlaceManager();
-	Provider<GreetingPresenter> getGreetingPresenter();
+	Provider<MainPresenter> getGreetingPresenter();
 	AsyncProvider<GreetingResponsePresenter> getGreetingResponsePresenter();
 }
