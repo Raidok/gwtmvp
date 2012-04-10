@@ -7,17 +7,18 @@ import com.allen_sauer.gwt.log.client.Log;
 import com.google.gwt.event.dom.client.ClickEvent;
 import com.google.gwt.event.dom.client.ClickHandler;
 import com.google.gwt.event.dom.client.HasClickHandlers;
-import com.google.gwt.event.shared.EventBus;
 import com.google.gwt.user.client.ui.DialogBox;
 import com.google.gwt.user.client.ui.HasHTML;
 import com.google.gwt.user.client.ui.HasText;
 import com.google.inject.Inject;
+import com.google.web.bindery.event.shared.EventBus;
 import com.gwtplatform.mvp.client.Presenter;
 import com.gwtplatform.mvp.client.View;
 import com.gwtplatform.mvp.client.annotations.NameToken;
-import com.gwtplatform.mvp.client.annotations.ProxyStandard;
+import com.gwtplatform.mvp.client.annotations.ProxyCodeSplit;
+import com.gwtplatform.mvp.client.proxy.Place;
 import com.gwtplatform.mvp.client.proxy.PlaceManager;
-import com.gwtplatform.mvp.client.proxy.ProxyPlace;
+import com.gwtplatform.mvp.client.proxy.Proxy;
 import com.gwtplatform.mvp.client.proxy.RevealRootContentEvent;
 
 public class GreetingResponsePresenter extends
@@ -33,9 +34,9 @@ Presenter<GreetingResponsePresenter.MyView, GreetingResponsePresenter.MyProxy> {
 		DialogBox getDialogBox();
 	}
 
-	@ProxyStandard
+	@ProxyCodeSplit
 	@NameToken(nameToken)
-	public interface MyProxy extends ProxyPlace<GreetingResponsePresenter> {
+	public interface MyProxy extends Proxy<GreetingResponsePresenter>, Place {
 	}
 
 	public static final String nameToken = "GreetingResponse";
