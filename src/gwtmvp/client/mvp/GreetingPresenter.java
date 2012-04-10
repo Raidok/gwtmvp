@@ -20,6 +20,7 @@ import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.annotations.ProxyStandard;
 import com.gwtplatform.mvp.client.proxy.Place;
 import com.gwtplatform.mvp.client.proxy.PlaceManager;
+import com.gwtplatform.mvp.client.proxy.PlaceRequest;
 import com.gwtplatform.mvp.client.proxy.Proxy;
 import com.gwtplatform.mvp.client.proxy.RevealRootContentEvent;
 
@@ -36,6 +37,7 @@ GreetingPresenter.MyProxy> {
 	public interface MyView extends View {
 		public HasValue<String> getName();
 		public HasClickHandlers getSend();
+		public void reset();
 	}
 
 	@ProxyStandard
@@ -77,6 +79,7 @@ GreetingPresenter.MyProxy> {
 			@Override
 			public void onSuccess(SendGreetingResult result) {
 				// take the result from the server and notify client interested components
+				placeManager.revealPlace(new PlaceRequest(GreetingResponsePresenter.nameToken));
 				getEventBus().fireEvent(new GreetingSentEvent(result.getName(), result.getMessage()));
 			}
 
@@ -92,6 +95,12 @@ GreetingPresenter.MyProxy> {
 				doSend();
 			}
 		}));
+	}
+
+	@Override
+	protected void onReset() {
+		super.onReset();
+		getView().reset();
 	}
 
 	@Override

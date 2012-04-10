@@ -50,7 +50,6 @@ Presenter<GreetingResponsePresenter.MyView, GreetingResponsePresenter.MyProxy> {
 			final PlaceManager placeManager) {
 		super(eventBus, view, proxy);
 		this.placeManager = placeManager;
-		bind();
 	}
 
 	@Override
@@ -62,10 +61,7 @@ Presenter<GreetingResponsePresenter.MyView, GreetingResponsePresenter.MyProxy> {
 			@Override
 			public void onClick(final ClickEvent event) {
 				getView().getDialogBox().hide();
-
-				// Not sure of a nice place to put these!
-				//    sendButton.setEnabled(true);
-				//    sendButton.setFocus(true);
+				placeManager.revealRelativePlace(-1);
 			}
 		}));
 

@@ -10,6 +10,7 @@ import com.google.gwt.user.client.ui.Widget;
 import com.gwtplatform.mvp.client.ViewImpl;
 
 public class GreetingView extends ViewImpl implements GreetingPresenter.MyView {
+
 	private final TextBox name;
 	private final Button sendButton;
 	private final FlowPanel panel = new FlowPanel();
@@ -40,6 +41,7 @@ public class GreetingView extends ViewImpl implements GreetingPresenter.MyView {
 		return sendButton;
 	}
 
+	@Override
 	public void reset() {
 		// Focus the cursor on the name field when the app loads
 		name.setFocus(true);
