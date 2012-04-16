@@ -9,7 +9,6 @@ import com.gwtplatform.mvp.client.Presenter;
 import com.gwtplatform.mvp.client.View;
 import com.gwtplatform.mvp.client.annotations.ContentSlot;
 import com.gwtplatform.mvp.client.annotations.ProxyStandard;
-import com.gwtplatform.mvp.client.proxy.Place;
 import com.gwtplatform.mvp.client.proxy.PlaceManager;
 import com.gwtplatform.mvp.client.proxy.Proxy;
 import com.gwtplatform.mvp.client.proxy.RevealContentHandler;
@@ -22,7 +21,7 @@ Presenter<LayoutPresenter.MyView, LayoutPresenter.MyProxy> {
 	}
 
 	@ProxyStandard
-	public interface MyProxy extends Proxy<LayoutPresenter>, Place {
+	public interface MyProxy extends Proxy<LayoutPresenter> {
 	}
 
 	@ContentSlot
@@ -53,7 +52,6 @@ Presenter<LayoutPresenter.MyView, LayoutPresenter.MyProxy> {
 	@Override
 	protected void onReveal() {
 		super.onReveal();
-		placeManager.revealCurrentPlace();
 	}
 
 	@Override
