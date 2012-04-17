@@ -55,7 +55,7 @@
 	<g:HTMLPanel styleName="{style.container}">
 
 		<g:HTMLPanel ui:field="headerPanel" styleName="{style.header}">
-			Header
+			GWT MVP test project
 			<g:Image visible="false" ui:field="loadingImage" styleName="{style.loading}" resource='{resources.loading}'/>
 		</g:HTMLPanel>
 
