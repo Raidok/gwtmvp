@@ -21,7 +21,7 @@ public class MyPlaceManager extends PlaceManagerImpl {
 
 	@Override
 	public void revealDefaultPlace() {
-		revealPlace(defaultPlaceRequest);
+		revealPlace(defaultPlaceRequest, false);
 	}
 
 	@Override
