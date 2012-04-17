@@ -10,7 +10,7 @@ import com.gwtplatform.mvp.client.DelayedBindRegistry;
  * Entry point classes define <code>onModuleLoad()</code>.
  */
 public class Gwtmvp implements EntryPoint {
-	private final MyGinjector ginjector = GWT.create(MyGinjector.class);
+	public final MyGinjector ginjector = GWT.create(MyGinjector.class);
 
 	@Override
 	public void onModuleLoad() {
