@@ -1,8 +1,11 @@
 package gwtmvp.client.gin;
 
+import gwtmvp.client.mvp.AdminPresenter;
+import gwtmvp.client.mvp.ErrorPresenter;
 import gwtmvp.client.mvp.HomePresenter;
 import gwtmvp.client.mvp.LayoutPresenter;
 
+import com.google.gwt.inject.client.AsyncProvider;
 import com.google.gwt.inject.client.GinModules;
 import com.google.gwt.inject.client.Ginjector;
 import com.google.inject.Provider;
@@ -14,6 +17,8 @@ import com.gwtplatform.mvp.client.proxy.PlaceManager;
 public interface MyGinjector extends Ginjector {
 	EventBus getEventBus();
 	PlaceManager getPlaceManager();
-	Provider<LayoutPresenter> getLayoutPresPresenter();
+	Provider<LayoutPresenter> getLayoutPresenter();
 	Provider<HomePresenter> getHomePresenter();
+	AsyncProvider<AdminPresenter> getAdminPresenter();
+	AsyncProvider<ErrorPresenter> getErrorPresenter();
 }

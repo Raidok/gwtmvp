@@ -1,6 +1,7 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
 	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+	<ui:with type="gwtmvp.client.NameTokens" field="nameTokens"></ui:with>
 	<ui:style>
 		.important {
 			font-weight: bold;
@@ -9,8 +10,9 @@
 	<g:HTMLPanel >
 		<g:HTMLPanel ui:field="headerPanel" styleName="{style.important}">-header-</g:HTMLPanel>
 		<g:HTMLPanel ui:field="menuPanel">
-			<g:InlineHyperlink targetHistoryToken="Home">Home</g:InlineHyperlink>
-			<g:InlineHyperlink targetHistoryToken="Error">Error</g:InlineHyperlink>
+			<g:InlineHyperlink targetHistoryToken="{nameTokens.getHome}">Home</g:InlineHyperlink>
+			<g:InlineHyperlink targetHistoryToken="{nameTokens.getAdmin}">Admin</g:InlineHyperlink>
+			<g:InlineHyperlink targetHistoryToken="{nameTokens.getError}">Error</g:InlineHyperlink>
 		</g:HTMLPanel>
 		<g:HTMLPanel ui:field="contentPanel">-content-</g:HTMLPanel>
 		<g:HTMLPanel ui:field="footerPanel">-footer-</g:HTMLPanel>

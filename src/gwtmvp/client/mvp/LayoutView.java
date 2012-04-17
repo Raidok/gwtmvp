@@ -1,34 +1,28 @@
 package gwtmvp.client.mvp;
 
-import com.allen_sauer.gwt.log.client.Log;
-import com.google.gwt.core.client.GWT;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.uibinder.client.UiField;
 import com.google.gwt.user.client.ui.HTMLPanel;
 import com.google.gwt.user.client.ui.Widget;
+import com.google.inject.Inject;
 import com.gwtplatform.mvp.client.ViewImpl;
 
 public class LayoutView extends ViewImpl implements LayoutPresenter.MyView {
 
-	private static LayoutViewUiBinder uiBinder = GWT.create(LayoutViewUiBinder.class);
+	private final Widget widget;
 
-	interface LayoutViewUiBinder extends UiBinder<Widget, LayoutView> {
+	public interface Binder extends UiBinder<Widget, LayoutView> {
 	}
 
-	public final Widget widget;
+	@UiField HTMLPanel headerPanel;
+	@UiField HTMLPanel menuPanel;
+	@UiField HTMLPanel contentPanel;
+	@UiField HTMLPanel footerPanel;
 
-	public LayoutView() {
-		widget = uiBinder.createAndBindUi(this);
+	@Inject
+	public LayoutView(final Binder binder) {
+		widget = binder.createAndBindUi(this);
 	}
-
-	@UiField
-	HTMLPanel headerPanel;
-	@UiField
-	HTMLPanel menuPanel;
-	@UiField
-	HTMLPanel contentPanel;
-	@UiField
-	HTMLPanel footerPanel;
 
 	@Override
 	public Widget asWidget() {
@@ -37,9 +31,9 @@ public class LayoutView extends ViewImpl implements LayoutPresenter.MyView {
 
 	@Override
 	public void setInSlot(Object slot, Widget content) {
-		Log.info("setInSlot");
 		if (slot == LayoutPresenter.TYPE_SetContent) {
 			contentPanel.clear();
+
 			if (content != null) {
 				contentPanel.add(content);
 			}
@@ -47,6 +41,4 @@ public class LayoutView extends ViewImpl implements LayoutPresenter.MyView {
 			super.setInSlot(slot, content);
 		}
 	}
-
-
 }
