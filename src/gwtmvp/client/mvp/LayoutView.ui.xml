@@ -7,22 +7,28 @@
 	<ui:with type="gwtmvp.client.NameTokens" field="nameTokens"></ui:with>
 	<ui:with type="gwtmvp.client.resources.Resources" field="resources"></ui:with>
 	<ui:style>
+		@def headerBg #71C42B;
 		.container {
 			margin: 0 30px;
 		}
-		.header, .content, .footer {
-			padding: 20px;
+		.header, .content {
 		}
 		.header {
-			background: #ccc;
+			font-size: 2em;
+			color: #FFF;
+			height: 32px;
+			padding: 20px;
+			background: #71C42B;
 		}
 		.loading {
 			float: right;
+			background-color: #FFF;
 		}
 		.menu {
-			background: #aaa;
+			background: #F2F39E;
 			float: left;
 			width: 100%;
+			margin: 1px 0;
 		}
 		.menuul {
 		}
@@ -31,21 +37,19 @@
 			display: inline;
 		}
 		.menua {
+			color: #01243B;
 			display: block;
 			float: left;
-			padding: 5px 10px;
+			padding: 10px 20px;
 			text-decoration: none;
 			border-right: 1px solid #fff;
 		}
+		.menua:hover {
+			color: #5288DB;
+		}
 		.content {
 			clear: both;
-			min-height: 200px;
-		}
-		.footer {
-			clear: both;
-			background: #ccc;
-			text-align: right;
-			height: footerHeight;
+			padding: 20px;
 		}
 	</ui:style>
 	<g:HTMLPanel styleName="{style.container}">
@@ -67,8 +71,6 @@
 		</g:HTMLPanel>
 
 		<g:HTMLPanel ui:field="contentPanel" styleName="{style.content}"></g:HTMLPanel>
-
-		<g:HTMLPanel ui:field="footerPanel" styleName="{style.footer}">footer</g:HTMLPanel>
 
 	</g:HTMLPanel>
 </ui:UiBinder> 

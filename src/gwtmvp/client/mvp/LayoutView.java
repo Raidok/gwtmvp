@@ -20,7 +20,6 @@ public class LayoutView extends ViewImpl implements LayoutPresenter.MyView {
 	@UiField(provided = true) final Resources resources;
 	@UiField HTMLPanel headerPanel;
 	@UiField HTMLPanel contentPanel;
-	@UiField HTMLPanel footerPanel;
 	@UiField Image loadingImage;
 
 	@Inject
