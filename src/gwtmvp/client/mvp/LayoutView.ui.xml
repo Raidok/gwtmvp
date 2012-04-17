@@ -1,20 +1,74 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
-<ui:UiBinder xmlns:ui="urn:ui:com.google.gwt.uibinder"
-	xmlns:g="urn:import:com.google.gwt.user.client.ui">
+<ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
+	xmlns:g='urn:import:com.google.gwt.user.client.ui'
+	ui:generateFormat='com.google.gwt.i18n.rebind.format.PropertiesFormat'
+	ui:generateKeys='com.google.gwt.i18n.rebind.keygen.MD5KeyGenerator'
+	ui:generateLocales='default'>
 	<ui:with type="gwtmvp.client.NameTokens" field="nameTokens"></ui:with>
+	<ui:with type="gwtmvp.client.resources.Resources" field="resources"></ui:with>
 	<ui:style>
-		.important {
-			font-weight: bold;
+		.container {
+			margin: 0 30px;
+		}
+		.header, .content, .footer {
+			padding: 20px;
+		}
+		.header {
+			background: #ccc;
+		}
+		.loading {
+			float: right;
+		}
+		.menu {
+			background: #aaa;
+			float: left;
+			width: 100%;
+		}
+		.menuul {
+		}
+		.menuli {
+			list-style-type: none;
+			display: inline;
+		}
+		.menua {
+			display: block;
+			float: left;
+			padding: 5px 10px;
+			text-decoration: none;
+			border-right: 1px solid #fff;
+		}
+		.content {
+			clear: both;
+			min-height: 200px;
+		}
+		.footer {
+			clear: both;
+			background: #ccc;
+			text-align: right;
+			height: footerHeight;
 		}
 	</ui:style>
-	<g:HTMLPanel >
-		<g:HTMLPanel ui:field="headerPanel" styleName="{style.important}">-header-</g:HTMLPanel>
-		<g:HTMLPanel ui:field="menuPanel">
-			<g:InlineHyperlink targetHistoryToken="{nameTokens.getHome}">Home</g:InlineHyperlink>
-			<g:InlineHyperlink targetHistoryToken="{nameTokens.getAdmin}">Admin</g:InlineHyperlink>
-			<g:InlineHyperlink targetHistoryToken="{nameTokens.getError}">Error</g:InlineHyperlink>
+	<g:HTMLPanel styleName="{style.container}">
+
+		<g:HTMLPanel ui:field="headerPanel" styleName="{style.header}">
+			Header
+			<g:Image visible="false" ui:field="loadingImage" styleName="{style.loading}" resource='{resources.loading}'/>
 		</g:HTMLPanel>
-		<g:HTMLPanel ui:field="contentPanel">-content-</g:HTMLPanel>
-		<g:HTMLPanel ui:field="footerPanel">-footer-</g:HTMLPanel>
+
+		<g:HTMLPanel ui:field="menuPanel" styleName="{style.menu}">
+			<ul class="{style.menuul}">
+				<li class="{style.menuli}">
+					<g:InlineHyperlink targetHistoryToken="{nameTokens.getHome}" styleName="{style.menua}">Home</g:InlineHyperlink></li>
+				<li class="{style.menuli}">
+					<g:InlineHyperlink targetHistoryToken="{nameTokens.getAdmin}" styleName="{style.menua}">Admin</g:InlineHyperlink></li>
+				<li class="{style.menuli}">
+					<g:InlineHyperlink targetHistoryToken="{nameTokens.getError}" styleName="{style.menua}">Error</g:InlineHyperlink></li>
+			</ul>
+		</g:HTMLPanel>
+
+		<g:HTMLPanel ui:field="contentPanel" styleName="{style.content}"></g:HTMLPanel>
+
+		<g:HTMLPanel ui:field="footerPanel" styleName="{style.footer}">footer</g:HTMLPanel>
+
 	</g:HTMLPanel>
 </ui:UiBinder> 

@@ -16,7 +16,7 @@ public class Gwtmvp implements EntryPoint {
 	public void onModuleLoad() {
 
 		DelayedBindRegistry.bind(ginjector);
-
+		ginjector.getCss();
 		ginjector.getPlaceManager().revealCurrentPlace();
 	}
 }

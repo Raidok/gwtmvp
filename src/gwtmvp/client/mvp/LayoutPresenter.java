@@ -1,6 +1,7 @@
 package gwtmvp.client.mvp;
 
 import com.google.gwt.event.shared.GwtEvent.Type;
+import com.google.gwt.user.client.Timer;
 import com.google.inject.Inject;
 import com.google.web.bindery.event.shared.EventBus;
 import com.gwtplatform.mvp.client.Presenter;
@@ -18,6 +19,7 @@ Presenter<LayoutPresenter.MyView, LayoutPresenter.MyProxy> {
 	public static final Type<RevealContentHandler<?>> TYPE_SetContent = new Type<RevealContentHandler<?>>();
 
 	public interface MyView extends View {
+		void showLoading(boolean visible);
 	}
 
 	@ProxyStandard
@@ -38,5 +40,14 @@ Presenter<LayoutPresenter.MyView, LayoutPresenter.MyProxy> {
 	@Override
 	protected void onBind() {
 		super.onBind();
+		Timer timer = new Timer() {
+			boolean visible = false;
+			@Override
+			public void run() {
+				visible = !visible;
+				getView().showLoading(visible);
+			}
+		};
+		timer.scheduleRepeating(1000);
 	}
 }

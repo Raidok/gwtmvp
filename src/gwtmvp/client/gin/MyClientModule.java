@@ -10,7 +10,11 @@ import gwtmvp.client.mvp.HomePresenter;
 import gwtmvp.client.mvp.HomeView;
 import gwtmvp.client.mvp.LayoutPresenter;
 import gwtmvp.client.mvp.LayoutView;
+import gwtmvp.client.resources.Resources;
 
+import com.google.gwt.resources.client.CssResource;
+import com.google.inject.Inject;
+import com.google.inject.Provides;
 import com.google.inject.Singleton;
 import com.gwtplatform.mvp.client.gin.AbstractPresenterModule;
 import com.gwtplatform.mvp.client.gin.DefaultModule;
@@ -30,6 +34,13 @@ public class MyClientModule extends AbstractPresenterModule {
 				AdminView.class, AdminPresenter.MyProxy.class);
 		bindPresenter(ErrorPresenter.class, ErrorPresenter.MyView.class,
 				ErrorView.class, ErrorPresenter.MyProxy.class);
+	}
+
+	@Inject
+	@Provides CssResource getCss(final Resources resources) {
+		CssResource style = resources.css();
+		style.ensureInjected();
+		return style;
 	}
 
 }
