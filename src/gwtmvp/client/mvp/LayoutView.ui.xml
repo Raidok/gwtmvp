@@ -1,76 +1,29 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 <ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
 	xmlns:g='urn:import:com.google.gwt.user.client.ui'
+	xmlns:b="urn:import:com.github.gwtbootstrap.client.ui"
 	ui:generateFormat='com.google.gwt.i18n.rebind.format.PropertiesFormat'
 	ui:generateKeys='com.google.gwt.i18n.rebind.keygen.MD5KeyGenerator'
 	ui:generateLocales='default'>
 	<ui:with type="gwtmvp.client.NameTokens" field="nameTokens"></ui:with>
 	<ui:with type="gwtmvp.client.resources.Resources" field="resources"></ui:with>
 	<ui:style>
-		@def headerBg #71C42B;
-		.container {
-			margin: 0 30px;
-		}
-		.header, .content {
-		}
-		.header {
-			font-size: 2em;
-			color: #FFF;
-			height: 32px;
-			padding: 20px;
-			background: #71C42B;
-		}
-		.loading {
-			float: right;
-			background-color: #FFF;
-		}
-		.menu {
-			background: #F2F39E;
-			float: left;
-			width: 100%;
-			margin: 1px 0;
-		}
-		.menuul {
-		}
-		.menuli {
-			list-style-type: none;
-			display: inline;
-		}
-		.menua {
-			color: #01243B;
-			display: block;
-			float: left;
-			padding: 10px 20px;
-			text-decoration: none;
-			border-right: 1px solid #fff;
-		}
-		.menua:hover {
-			color: #5288DB;
-		}
-		.content {
-			clear: both;
-			padding: 20px;
-		}
 	</ui:style>
-	<g:HTMLPanel styleName="{style.container}">
+	<g:HTMLPanel>
 
-		<g:HTMLPanel ui:field="headerPanel" styleName="{style.header}">
-			GWT MVP test project
-			<g:Image visible="false" ui:field="loadingImage" styleName="{style.loading}" resource='{resources.loading}'/>
-		</g:HTMLPanel>
+		<b:Navbar position="TOP">
+			<b:Brand>GWT MVP test project</b:Brand>
+			<b:Nav>
+				<b:NavLink href="#{nameTokens.getHome}">Home</b:NavLink>
+				<b:NavLink href="#{nameTokens.getAdmin}" styleName="">Admin</b:NavLink>
+				<b:NavLink href="#{nameTokens.getError}" styleName="">Error</b:NavLink>
+			</b:Nav>
+			<b:Nav>
+				<g:Image visible="false" ui:field="loadingImage" styleName="nav pull-right" resource='{resources.loading}'/>
+			</b:Nav>
+		</b:Navbar>
 
-		<g:HTMLPanel ui:field="menuPanel" styleName="{style.menu}">
-			<ul class="{style.menuul}">
-				<li class="{style.menuli}">
-					<g:InlineHyperlink targetHistoryToken="{nameTokens.getHome}" styleName="{style.menua}">Home</g:InlineHyperlink></li>
-				<li class="{style.menuli}">
-					<g:InlineHyperlink targetHistoryToken="{nameTokens.getAdmin}" styleName="{style.menua}">Admin</g:InlineHyperlink></li>
-				<li class="{style.menuli}">
-					<g:InlineHyperlink targetHistoryToken="{nameTokens.getError}" styleName="{style.menua}">Error</g:InlineHyperlink></li>
-			</ul>
-		</g:HTMLPanel>
-
-		<g:HTMLPanel ui:field="contentPanel" styleName="{style.content}"></g:HTMLPanel>
+		<g:HTMLPanel ui:field="contentPanel" styleName="container"></g:HTMLPanel>
 
 	</g:HTMLPanel>
 </ui:UiBinder> 

@@ -18,7 +18,6 @@ public class LayoutView extends ViewImpl implements LayoutPresenter.MyView {
 	private final Widget widget;
 
 	@UiField(provided = true) final Resources resources;
-	@UiField HTMLPanel headerPanel;
 	@UiField HTMLPanel contentPanel;
 	@UiField Image loadingImage;
 
