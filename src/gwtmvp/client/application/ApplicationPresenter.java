@@ -1,5 +1,7 @@
 package gwtmvp.client.application;
 
+import gwtmvp.client.application.widget.header.HeaderPresenter;
+
 import com.google.gwt.event.shared.GwtEvent.Type;
 import com.google.inject.Inject;
 import com.google.web.bindery.event.shared.EventBus;
@@ -14,11 +16,13 @@ import com.gwtplatform.mvp.client.proxy.RevealRootContentEvent;
 public class ApplicationPresenter extends
 Presenter<ApplicationPresenter.MyView, ApplicationPresenter.MyProxy> {
 
+	public static final Type<RevealContentHandler<?>> TYPE_SetHeader = new Type<RevealContentHandler<?>>();
 	@ContentSlot
 	public static final Type<RevealContentHandler<?>> TYPE_SetContent = new Type<RevealContentHandler<?>>();
 
+	private final HeaderPresenter header;
+	
 	public interface MyView extends View {
-		void showLoading(boolean visible);
 	}
 
 	@ProxyStandard
@@ -27,8 +31,9 @@ Presenter<ApplicationPresenter.MyView, ApplicationPresenter.MyProxy> {
 
 	@Inject
 	public ApplicationPresenter(final EventBus eventBus, final MyView view,
-			final MyProxy proxy) {
+			final MyProxy proxy, final HeaderPresenter header) {
 		super(eventBus, view, proxy);
+		this.header = header;
 	}
 
 	@Override
@@ -39,5 +44,6 @@ Presenter<ApplicationPresenter.MyView, ApplicationPresenter.MyProxy> {
 	@Override
 	protected void onBind() {
 		super.onBind();
+		setInSlot(TYPE_SetHeader, header);
 	}
 }
