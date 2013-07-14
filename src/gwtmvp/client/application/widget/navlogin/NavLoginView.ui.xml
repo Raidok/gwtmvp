@@ -12,14 +12,14 @@
 	.login {
 		margin: 5px 0;
 	}
-	.login input {
+	.login input, .login a {
 		margin: 0 2px 0 0 !important;
 	}
 	</ui:style>
 
 	<b:Form type="INLINE" styleName="{style.login}">
-		<b:TextBox alternateSize="SMALL" placeholder="Email"/>
-		<b:PasswordTextBox alternateSize="SMALL" placeholder="Password"/>
-		<b:SubmitButton addStyleNames="btn">Sign in</b:SubmitButton>
+		<b:TextBox alternateSize="SMALL" placeholder="Email" ui:field="emailField"/>
+		<b:PasswordTextBox alternateSize="SMALL" placeholder="Password" ui:field="passwordField"/>
+		<b:Button addStyleNames="btn" ui:field="signInButton">Sign in</b:Button>
 	</b:Form>
 </ui:UiBinder>

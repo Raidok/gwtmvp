@@ -1,7 +1,7 @@
 package gwtmvp.server.guice;
 
-import gwtmvp.server.handler.SendGreetingHandler;
-import gwtmvp.shared.rpc.SendGreeting;
+import gwtmvp.server.handler.LogInHandler;
+import gwtmvp.shared.rpc.LogInAction;
 
 import org.apache.commons.logging.Log;
 
@@ -12,7 +12,7 @@ public class GuiceServerModule extends HandlerModule {
 
 	@Override
 	protected void configureHandlers() {
-		bindHandler(SendGreeting.class, SendGreetingHandler.class);
+		bindHandler(LogInAction.class, LogInHandler.class);
 		bind(Log.class).toProvider(LogProvider.class).in(Singleton.class);
 	}
 
