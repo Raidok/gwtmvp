@@ -9,7 +9,7 @@
   <inherits name='com.google.gwt.user.theme.standard.StandardResources'/>
 
   <!-- Other module inherits -->
-  <inherits name='com.gwtplatform.mvp.Mvp' />
+  <inherits name='com.gwtplatform.mvp.MvpWithEntryPoint' />
   <inherits name='com.gwtplatform.dispatch.Dispatch'/>
   <inherits name="com.github.gwtbootstrap.Bootstrap"/>
 
@@ -25,12 +25,14 @@
   <set-property name="log_DivLogger" value="DISABLED" />
 
   <!-- Specify the app entry point class. -->
-  <entry-point class='gwtmvp.client.Gwtmvp'/>
+  <!--entry-point class='gwtmvp.client.Gwtmvp'/-->
+  
+  <set-configuration-property name="gwtp.bootstrapper"  
+         value="gwtmvp.client.MyBootstrapperImpl"/> 
 
   <!-- Set Ginjector location -->
-  <define-configuration-property name="gin.ginjector" is-multi-valued="false" />
-  <set-configuration-property name="gin.ginjector"
-       value="gwtmvp.client.gin.MyGinjector" />
+  <set-configuration-property name="gin.ginjector.modules"
+       value="gwtmvp.client.gin.MyClientModule" />
 
   <!-- Specify the paths for translatable code -->
   <source path='client'/>

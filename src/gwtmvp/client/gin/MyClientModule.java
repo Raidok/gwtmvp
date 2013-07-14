@@ -1,7 +1,6 @@
 package gwtmvp.client.gin;
 
 import gwtmvp.client.MyPlaceManager;
-import gwtmvp.client.dispatch.CachingDispatchAsync;
 import gwtmvp.client.mvp.AdminPresenter;
 import gwtmvp.client.mvp.AdminView;
 import gwtmvp.client.mvp.ErrorPresenter;
@@ -15,7 +14,7 @@ import gwtmvp.client.resources.Resources;
 import com.google.gwt.resources.client.CssResource;
 import com.google.inject.Inject;
 import com.google.inject.Provides;
-import com.google.inject.Singleton;
+import com.gwtplatform.dispatch.client.gin.DispatchAsyncModule;
 import com.gwtplatform.mvp.client.gin.AbstractPresenterModule;
 import com.gwtplatform.mvp.client.gin.DefaultModule;
 
@@ -24,7 +23,7 @@ public class MyClientModule extends AbstractPresenterModule {
 	@Override
 	protected void configure() {
 		install(new DefaultModule(MyPlaceManager.class));
-		bind(CachingDispatchAsync.class).in(Singleton.class);
+		install(new DispatchAsyncModule.Builder().build());
 
 		bindPresenter(LayoutPresenter.class, LayoutPresenter.MyView.class,
 				LayoutView.class, LayoutPresenter.MyProxy.class);
