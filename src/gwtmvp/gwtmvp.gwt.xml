@@ -25,7 +25,7 @@
   <set-property name="log_DivLogger" value="DISABLED" />
   
   <set-configuration-property name="gwtp.bootstrapper"  
-         value="gwtmvp.client.MyBootstrapperImpl"/> 
+         value="gwtmvp.client.gin.MyBootstrapperImpl"/> 
 
   <!-- Set Ginjector location -->
   <set-configuration-property name="gin.ginjector.modules"
