@@ -23,9 +23,6 @@
 
   <!-- Turn off the floating logger - output will be shown in the mode console -->
   <set-property name="log_DivLogger" value="DISABLED" />
-
-  <!-- Specify the app entry point class. -->
-  <!--entry-point class='gwtmvp.client.Gwtmvp'/-->
   
   <set-configuration-property name="gwtp.bootstrapper"  
          value="gwtmvp.client.MyBootstrapperImpl"/> 
