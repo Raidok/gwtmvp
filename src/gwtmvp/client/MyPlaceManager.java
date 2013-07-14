@@ -15,8 +15,8 @@ public class MyPlaceManager extends PlaceManagerImpl {
 	@Inject
 	public MyPlaceManager(EventBus eventBus, TokenFormatter tokenFormatter) {
 		super(eventBus, tokenFormatter);
-		defaultPlaceRequest = new PlaceRequest(NameTokens.home);
-		errorPlaceRequest = new PlaceRequest(NameTokens.error);
+		defaultPlaceRequest = new PlaceRequest.Builder().nameToken(NameTokens.home).build();
+		errorPlaceRequest = new PlaceRequest.Builder().nameToken(NameTokens.error).build();
 	}
 
 	@Override
