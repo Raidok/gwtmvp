@@ -1,5 +1,6 @@
 package gwtmvp.client.mvp;
 
+import gwtmvp.client.security.LoggedInGatekeeper;
 import gwtmvp.client.NameTokens;
 
 import com.google.inject.Inject;
@@ -8,6 +9,7 @@ import com.gwtplatform.mvp.client.Presenter;
 import com.gwtplatform.mvp.client.View;
 import com.gwtplatform.mvp.client.annotations.NameToken;
 import com.gwtplatform.mvp.client.annotations.ProxyCodeSplit;
+import com.gwtplatform.mvp.client.annotations.UseGatekeeper;
 import com.gwtplatform.mvp.client.proxy.ProxyPlace;
 import com.gwtplatform.mvp.client.proxy.RevealContentEvent;
 
@@ -19,6 +21,7 @@ Presenter<AdminPresenter.MyView, AdminPresenter.MyProxy> {
 
 	@ProxyCodeSplit
 	@NameToken(NameTokens.admin)
+	@UseGatekeeper(LoggedInGatekeeper.class)
 	public interface MyProxy extends ProxyPlace<AdminPresenter> {
 	}
 

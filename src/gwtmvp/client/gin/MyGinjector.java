@@ -1,5 +1,6 @@
 package gwtmvp.client.gin;
 
+import gwtmvp.client.security.LoggedInGatekeeper;
 import gwtmvp.client.mvp.AdminPresenter;
 import gwtmvp.client.mvp.ErrorPresenter;
 import gwtmvp.client.mvp.HomePresenter;
@@ -18,6 +19,7 @@ public interface MyGinjector extends Ginjector {
 	EventBus getEventBus();
 	PlaceManager getPlaceManager();
 	CssResource getCss();
+	LoggedInGatekeeper getLoggedInGatekeeper();
 	Provider<LayoutPresenter> getLayoutPresenter();
 	Provider<HomePresenter> getHomePresenter();
 	AsyncProvider<AdminPresenter> getAdminPresenter();

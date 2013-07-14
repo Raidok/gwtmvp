@@ -10,6 +10,7 @@ import gwtmvp.client.mvp.HomeView;
 import gwtmvp.client.mvp.LayoutPresenter;
 import gwtmvp.client.mvp.LayoutView;
 import gwtmvp.client.resources.Resources;
+import gwtmvp.shared.dto.CurrentUserDto;
 
 import com.google.gwt.resources.client.CssResource;
 import com.google.inject.Inject;
@@ -24,7 +25,7 @@ public class MyClientModule extends AbstractPresenterModule {
 	protected void configure() {
 		install(new DefaultModule(MyPlaceManager.class));
 		install(new DispatchAsyncModule.Builder().build());
-
+		
 		bindPresenter(LayoutPresenter.class, LayoutPresenter.MyView.class,
 				LayoutView.class, LayoutPresenter.MyProxy.class);
 		bindPresenter(HomePresenter.class, HomePresenter.MyView.class,
@@ -33,6 +34,8 @@ public class MyClientModule extends AbstractPresenterModule {
 				AdminView.class, AdminPresenter.MyProxy.class);
 		bindPresenter(ErrorPresenter.class, ErrorPresenter.MyView.class,
 				ErrorView.class, ErrorPresenter.MyProxy.class);
+		
+		bind(CurrentUserDto.class).asEagerSingleton();
 	}
 
 	@Inject

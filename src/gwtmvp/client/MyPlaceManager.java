@@ -26,7 +26,6 @@ public class MyPlaceManager extends PlaceManagerImpl {
 
 	@Override
 	public void revealErrorPlace(String invalidHistoryToken) {
-		// does not fire a new History item
 		revealPlace(errorPlaceRequest, false);
 	}
 
