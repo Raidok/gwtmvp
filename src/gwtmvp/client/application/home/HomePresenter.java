@@ -1,5 +1,6 @@
-package gwtmvp.client.application;
+package gwtmvp.client.application.home;
 import gwtmvp.client.NameTokens;
+import gwtmvp.client.application.ApplicationPresenter;
 
 import com.google.inject.Inject;
 import com.google.web.bindery.event.shared.EventBus;
@@ -32,6 +33,6 @@ public class HomePresenter extends Presenter<HomePresenter.MyView, HomePresenter
 
 	@Override
 	protected void revealInParent() {
-		RevealContentEvent.fire(this, LayoutPresenter.TYPE_SetContent, this);
+		RevealContentEvent.fire(this, ApplicationPresenter.TYPE_SetContent, this);
 	}
 }

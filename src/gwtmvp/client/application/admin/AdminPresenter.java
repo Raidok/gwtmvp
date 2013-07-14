@@ -1,5 +1,6 @@
-package gwtmvp.client.application;
+package gwtmvp.client.application.admin;
 
+import gwtmvp.client.application.ApplicationPresenter;
 import gwtmvp.client.security.LoggedInGatekeeper;
 import gwtmvp.client.NameTokens;
 
@@ -33,7 +34,7 @@ Presenter<AdminPresenter.MyView, AdminPresenter.MyProxy> {
 
 	@Override
 	protected void revealInParent() {
-		RevealContentEvent.fire(this, LayoutPresenter.TYPE_SetContent, this);
+		RevealContentEvent.fire(this, ApplicationPresenter.TYPE_SetContent, this);
 	}
 
 	@Override

@@ -11,8 +11,8 @@ import com.gwtplatform.mvp.client.proxy.Proxy;
 import com.gwtplatform.mvp.client.proxy.RevealContentHandler;
 import com.gwtplatform.mvp.client.proxy.RevealRootContentEvent;
 
-public class LayoutPresenter extends
-Presenter<LayoutPresenter.MyView, LayoutPresenter.MyProxy> {
+public class ApplicationPresenter extends
+Presenter<ApplicationPresenter.MyView, ApplicationPresenter.MyProxy> {
 
 	@ContentSlot
 	public static final Type<RevealContentHandler<?>> TYPE_SetContent = new Type<RevealContentHandler<?>>();
@@ -22,11 +22,11 @@ Presenter<LayoutPresenter.MyView, LayoutPresenter.MyProxy> {
 	}
 
 	@ProxyStandard
-	public interface MyProxy extends Proxy<LayoutPresenter> {
+	public interface MyProxy extends Proxy<ApplicationPresenter> {
 	}
 
 	@Inject
-	public LayoutPresenter(final EventBus eventBus, final MyView view,
+	public ApplicationPresenter(final EventBus eventBus, final MyView view,
 			final MyProxy proxy) {
 		super(eventBus, view, proxy);
 	}

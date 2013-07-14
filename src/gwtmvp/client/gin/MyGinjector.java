@@ -1,10 +1,10 @@
 package gwtmvp.client.gin;
 
 import gwtmvp.client.security.LoggedInGatekeeper;
-import gwtmvp.client.application.AdminPresenter;
-import gwtmvp.client.application.ErrorPresenter;
-import gwtmvp.client.application.HomePresenter;
-import gwtmvp.client.application.LayoutPresenter;
+import gwtmvp.client.application.ApplicationPresenter;
+import gwtmvp.client.application.admin.AdminPresenter;
+import gwtmvp.client.application.home.ErrorPresenter;
+import gwtmvp.client.application.home.HomePresenter;
 
 import com.google.gwt.inject.client.AsyncProvider;
 import com.google.gwt.inject.client.GinModules;
@@ -20,7 +20,7 @@ public interface MyGinjector extends Ginjector {
 	PlaceManager getPlaceManager();
 	CssResource getCss();
 	LoggedInGatekeeper getLoggedInGatekeeper();
-	Provider<LayoutPresenter> getLayoutPresenter();
+	Provider<ApplicationPresenter> getLayoutPresenter();
 	Provider<HomePresenter> getHomePresenter();
 	AsyncProvider<AdminPresenter> getAdminPresenter();
 	AsyncProvider<ErrorPresenter> getErrorPresenter();

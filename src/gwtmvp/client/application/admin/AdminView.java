@@ -1,19 +1,19 @@
-package gwtmvp.client.application;
+package gwtmvp.client.application.admin;
 
+import com.gwtplatform.mvp.client.ViewImpl;
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
-import com.gwtplatform.mvp.client.ViewImpl;
 
-public class ErrorView extends ViewImpl implements ErrorPresenter.MyView {
+public class AdminView extends ViewImpl implements AdminPresenter.MyView {
 
 	private final Widget widget;
 
-	public interface Binder extends UiBinder<Widget, ErrorView> {
+	public interface Binder extends UiBinder<Widget, AdminView> {
 	}
 
 	@Inject
-	public ErrorView(final Binder binder) {
+	public AdminView(final Binder binder) {
 		widget = binder.createAndBindUi(this);
 	}
 

@@ -11,9 +11,9 @@ import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
 import com.gwtplatform.mvp.client.ViewImpl;
 
-public class LayoutView extends ViewImpl implements LayoutPresenter.MyView {
+public class ApplicationView extends ViewImpl implements ApplicationPresenter.MyView {
 
-	public interface Binder extends UiBinder<Widget, LayoutView> {
+	public interface Binder extends UiBinder<Widget, ApplicationView> {
 	}
 
 	private final Widget widget;
@@ -23,7 +23,7 @@ public class LayoutView extends ViewImpl implements LayoutPresenter.MyView {
 	@UiField Image loadingImage;
 
 	@Inject
-	public LayoutView(final Binder binder, final Resources resources) {
+	public ApplicationView(final Binder binder, final Resources resources) {
 		this.resources = resources;
 		widget = binder.createAndBindUi(this);
 	}
@@ -35,7 +35,7 @@ public class LayoutView extends ViewImpl implements LayoutPresenter.MyView {
 
 	@Override
 	public void setInSlot(Object slot, IsWidget content) {
-		if (slot == LayoutPresenter.TYPE_SetContent) {
+		if (slot == ApplicationPresenter.TYPE_SetContent) {
 			contentPanel.clear();
 
 			if (content != null) {
