@@ -1,4 +1,4 @@
-package gwtmvp.client;
+package gwtmvp.client.gin;
 
 import gwtmvp.client.gin.MyGinjector;
 
