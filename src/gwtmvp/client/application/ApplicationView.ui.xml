@@ -8,6 +8,9 @@
 	<ui:with type="gwtmvp.client.NameTokens" field="nameTokens"></ui:with>
 	<ui:with type="gwtmvp.client.resources.Resources" field="resources"></ui:with>
 	<ui:style>
+	.padding {
+		padding-top: 50px;
+	}
 	</ui:style>
 	<g:HTMLPanel>
 
@@ -23,7 +26,7 @@
 			</b:Nav>
 		</b:Navbar>
 
-		<g:HTMLPanel ui:field="contentPanel" styleName="container"></g:HTMLPanel>
+		<g:HTMLPanel ui:field="contentPanel" styleName="container {style.padding}"></g:HTMLPanel>
 
 	</g:HTMLPanel>
 </ui:UiBinder> 

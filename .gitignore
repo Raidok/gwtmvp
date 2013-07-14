@@ -9,3 +9,4 @@ war/WEB-INF/appengine-web.xml
 war/WEB-INF/lib/appengine*
 war/WEB-INF/lib/jsr107cache-1.1.jar
 /bin
+.gwt
