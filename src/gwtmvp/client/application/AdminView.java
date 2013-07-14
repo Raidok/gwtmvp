@@ -1,4 +1,4 @@
-package gwtmvp.client.mvp;
+package gwtmvp.client.application;
 
 import com.gwtplatform.mvp.client.ViewImpl;
 import com.google.gwt.uibinder.client.UiBinder;

@@ -1,10 +1,10 @@
 package gwtmvp.client.gin;
 
 import gwtmvp.client.security.LoggedInGatekeeper;
-import gwtmvp.client.mvp.AdminPresenter;
-import gwtmvp.client.mvp.ErrorPresenter;
-import gwtmvp.client.mvp.HomePresenter;
-import gwtmvp.client.mvp.LayoutPresenter;
+import gwtmvp.client.application.AdminPresenter;
+import gwtmvp.client.application.ErrorPresenter;
+import gwtmvp.client.application.HomePresenter;
+import gwtmvp.client.application.LayoutPresenter;
 
 import com.google.gwt.inject.client.AsyncProvider;
 import com.google.gwt.inject.client.GinModules;

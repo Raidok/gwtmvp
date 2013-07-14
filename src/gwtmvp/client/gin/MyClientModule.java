@@ -1,14 +1,14 @@
 package gwtmvp.client.gin;
 
 import gwtmvp.client.MyPlaceManager;
-import gwtmvp.client.mvp.AdminPresenter;
-import gwtmvp.client.mvp.AdminView;
-import gwtmvp.client.mvp.ErrorPresenter;
-import gwtmvp.client.mvp.ErrorView;
-import gwtmvp.client.mvp.HomePresenter;
-import gwtmvp.client.mvp.HomeView;
-import gwtmvp.client.mvp.LayoutPresenter;
-import gwtmvp.client.mvp.LayoutView;
+import gwtmvp.client.application.AdminPresenter;
+import gwtmvp.client.application.AdminView;
+import gwtmvp.client.application.ErrorPresenter;
+import gwtmvp.client.application.ErrorView;
+import gwtmvp.client.application.HomePresenter;
+import gwtmvp.client.application.HomeView;
+import gwtmvp.client.application.LayoutPresenter;
+import gwtmvp.client.application.LayoutView;
 import gwtmvp.client.resources.Resources;
 import gwtmvp.shared.dto.CurrentUserDto;
 

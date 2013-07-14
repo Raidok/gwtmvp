@@ -1,4 +1,4 @@
-package gwtmvp.client.mvp;
+package gwtmvp.client.application;
 
 import com.google.gwt.event.shared.GwtEvent.Type;
 import com.google.inject.Inject;

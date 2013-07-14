@@ -1,4 +1,4 @@
-package gwtmvp.client.mvp;
+package gwtmvp.client.application;
 
 import gwtmvp.client.security.LoggedInGatekeeper;
 import gwtmvp.client.NameTokens;

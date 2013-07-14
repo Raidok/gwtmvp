@@ -1,4 +1,4 @@
-package gwtmvp.client.mvp;
+package gwtmvp.client.application;
 import gwtmvp.client.NameTokens;
 
 import com.google.inject.Inject;

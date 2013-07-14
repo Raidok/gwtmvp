@@ -1,19 +1,19 @@
-package gwtmvp.client.mvp;
+package gwtmvp.client.application;
 
 import com.google.gwt.uibinder.client.UiBinder;
 import com.google.gwt.user.client.ui.Widget;
 import com.google.inject.Inject;
 import com.gwtplatform.mvp.client.ViewImpl;
 
-public class HomeView extends ViewImpl implements HomePresenter.MyView {
+public class ErrorView extends ViewImpl implements ErrorPresenter.MyView {
 
-	public final Widget widget;
+	private final Widget widget;
 
-	public interface Binder extends UiBinder<Widget, HomeView> {
+	public interface Binder extends UiBinder<Widget, ErrorView> {
 	}
 
 	@Inject
-	public HomeView(final Binder binder) {
+	public ErrorView(final Binder binder) {
 		widget = binder.createAndBindUi(this);
 	}
 
@@ -21,5 +21,4 @@ public class HomeView extends ViewImpl implements HomePresenter.MyView {
 	public Widget asWidget() {
 		return widget;
 	}
-
 }
