@@ -21,7 +21,7 @@ public class LogInHandler implements ActionHandler<LogInAction, LogInResult> {
 		
 		final String name = action.getEmail().substring(0, action.getEmail().indexOf('@'));
 
-		return new LogInResult(new CurrentUserDto(name, true));
+		return new LogInResult(new CurrentUserDto(name, action.getEmail(), true));
 	}
 
 	@Override

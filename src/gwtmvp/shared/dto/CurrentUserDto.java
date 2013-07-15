@@ -13,8 +13,9 @@ public class CurrentUserDto implements Dto {
 		loggedIn = false;
 	}
 
-	public CurrentUserDto(String name, Boolean loggedIn) {
+	public CurrentUserDto(String name, String email, Boolean loggedIn) {
 		this.name = name;
+		this.email = email;
 		this.loggedIn = loggedIn;
 	}
 
@@ -35,6 +36,11 @@ public class CurrentUserDto implements Dto {
 	}
 	public void setLoggedIn(Boolean loggedIn) {
 		this.loggedIn = loggedIn;
+	}
+	public void copyFrom(CurrentUserDto currentUser) {
+		name = currentUser.getName();
+		email = currentUser.getEmail();
+		loggedIn = currentUser.isLoggedIn();
 	}
 
 }

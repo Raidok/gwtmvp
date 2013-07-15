@@ -1,25 +1,27 @@
 <!DOCTYPE ui:UiBinder SYSTEM "http://dl.google.com/gwt/DTD/xhtml.ent">
 
 <ui:UiBinder xmlns:ui='urn:ui:com.google.gwt.uibinder'
-	xmlns:g='urn:import:com.google.gwt.user.client.ui'
-	xmlns:b="urn:import:com.github.gwtbootstrap.client.ui"
+	xmlns:g='urn:import:com.google.gwt.user.client.ui' xmlns:b="urn:import:com.github.gwtbootstrap.client.ui"
 	ui:generateFormat='com.google.gwt.i18n.rebind.format.PropertiesFormat'
 	ui:generateKeys='com.google.gwt.i18n.rebind.keygen.MD5KeyGenerator'
 	ui:generateLocales='default'>
 	<ui:with type="gwtmvp.client.NameTokens" field="nameTokens"></ui:with>
 	<ui:with type="gwtmvp.client.resources.Resources" field="resources"></ui:with>
 	<ui:style>
-	.login {
-		margin: 5px 0;
-	}
-	.login input, .login a {
-		margin: 0 2px 0 0 !important;
-	}
+		.login {
+			margin: 5px 0;
+		}
+		
+		.login input,.login a {
+			margin: 0 2px 0 0 !important;
+		}
 	</ui:style>
 
 	<b:Form type="INLINE" styleName="{style.login}">
-		<b:TextBox alternateSize="SMALL" placeholder="Email" ui:field="emailField"/>
-		<b:PasswordTextBox alternateSize="SMALL" placeholder="Password" ui:field="passwordField"/>
+		<b:TextBox alternateSize="SMALL" placeholder="Email"
+			ui:field="emailField" />
+		<b:PasswordTextBox alternateSize="SMALL"
+			placeholder="Password" ui:field="passwordField" />
 		<b:Button addStyleNames="btn" ui:field="signInButton">Sign in</b:Button>
 	</b:Form>
 </ui:UiBinder>
